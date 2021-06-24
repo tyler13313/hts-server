@@ -16,6 +16,7 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   rules: {
+    'import/no-cycle': 'off',
     'max-len': ['error', { code: 150, ignoreTemplateLiterals: true }],
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/lints-between-class-members': 'off',

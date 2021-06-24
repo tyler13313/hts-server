@@ -1,4 +1,4 @@
-import { AllowNull, AutoIncrement, BelongsTo, Column, DataType, ForeignKey, HasMany, Model, PrimaryKey, Table } from 'sequelize-typescript';
+import { AllowNull, AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import StockItem from './stockItem.model';
 import User from './user.model';
 
@@ -13,13 +13,17 @@ export default class Order extends Model {
   @Column(DataType.STRING(20))
   type: 'buy' | 'sell';
 
+  @AllowNull(false)
+  @Column(DataType.STRING(20))
+  status: 'order' | 'confirm' | 'cancel';
+
   @ForeignKey(() => StockItem)
   @Column
   stockItemId: bigint;
 
   @ForeignKey(() => User)
   @Column
-  userId: BigInt;
+  userId: bigint;
 
   @AllowNull(false)
   @Column
@@ -31,7 +35,7 @@ export default class Order extends Model {
 
   @AllowNull(false)
   @Column
-  totalPrice: BigInt;
+  totalPrice: bigint;
 
   @BelongsTo(() => StockItem)
   stockItem: StockItem;
