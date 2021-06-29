@@ -8,7 +8,7 @@ export const getStockItems = async () => {
       {
         model: StockItemHistory,
         where: {
-          data: Date.now(),
+          date: Date.now(),
         },
       },
     ],

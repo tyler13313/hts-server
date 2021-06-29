@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.use('/schools', schoolController);
 
-router.use('./stock', stockItemcontroller);
+router.use('/stocks', stockItemcontroller);
 
 export default router;
